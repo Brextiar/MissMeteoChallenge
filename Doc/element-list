@@ -1,0 +1,8 @@
+fr.app.miss_meteo_challenge
+fr.app.miss_meteo_challenge.bo
+fr.app.miss_meteo_challenge.controller
+fr.app.miss_meteo_challenge.services
+fr.app.miss_meteo_challenge.services.impl
+fr.app.miss_meteo_challenge.services.impl.meteo_concept
+fr.app.miss_meteo_challenge.services.impl.ParisLocalService
+fr.app.miss_meteo_challenge.services.impl.weather_api
