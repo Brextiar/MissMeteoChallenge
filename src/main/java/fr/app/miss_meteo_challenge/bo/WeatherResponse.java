@@ -41,20 +41,6 @@ public class WeatherResponse {
     }
 
     /**
-     * @return the weather description
-     */
-    public String getWeather() {
-        return weather;
-    }
-
-    /**
-     * @return the temperature
-     */
-    public Double getTemperature() {
-        return temperature;
-    }
-
-    /**
      * @return the date as a String in the format "yyyy-MM-dd"
      */
     public String getDate() {

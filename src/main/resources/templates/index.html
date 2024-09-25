@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Miss Météo Challenge - Home</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Julius+Sans+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<main>
+    <section>
+        <h1>Miss Météo Challenge</h1>
+        <p>Recherchez une ville pour obtenir la météo de demain.</p>
+        <form action="#" th:action="@{/weather}" method="get">
+            <div>
+                <label for="cityName">Nom de la ville :</label>
+                <input type="text" id="cityName" name="cityName" required>
+            </div>
+            <button type="submit">Obtenir la météo</button>
+        </form>
+    </section>
+    <section th:if="${weatherResponse != null}">
+        <h2>[[${cityName}]]</h2>
+        <p>Temps : [[${weatherResponse.weather}]]</p>
+        <p>Température : [[${weatherResponse.temperature}]]°C</p>
+    </section>
+    <aside th:if="${errorMessage != null}">
+        <p>[[${errorMessage}]]</p>
+    </aside>
+</main>
+</body>
+</html>

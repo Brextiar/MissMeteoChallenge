@@ -1,6 +1,8 @@
 fr.app.miss_meteo_challenge
 fr.app.miss_meteo_challenge.bo
-fr.app.miss_meteo_challenge.controller
+fr.app.miss_meteo_challenge.config
+fr.app.miss_meteo_challenge.controller.RestController
+fr.app.miss_meteo_challenge.controller.web_client_controller
 fr.app.miss_meteo_challenge.services
 fr.app.miss_meteo_challenge.services.impl
 fr.app.miss_meteo_challenge.services.impl.meteo_concept
