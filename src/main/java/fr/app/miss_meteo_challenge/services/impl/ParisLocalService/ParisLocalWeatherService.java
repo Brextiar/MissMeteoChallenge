@@ -55,14 +55,12 @@ public class ParisLocalWeatherService implements WeatherService {
     public WeatherResponse getNextDayWeather(String cityname) {
 
         LocalDate today = LocalDate.now();
-        ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            WeatherResponse[] weatherResponse = new WeatherResponse[]{objectMapper.readValue(PARIS_WEATHER_FILE.toFile(), WeatherResponse.class)};
+            WeatherResponse[] weatherResponses = objectMapper.readValue(PARIS_WEATHER_FILE.toFile(), WeatherResponse[].class);
 
-            for (WeatherResponse weather : weatherResponse) {
+            for (WeatherResponse weather : weatherResponses) {
                 if (weather.getDate().equals(today.toString())) {
-
                     return weather;
                 }
             }
