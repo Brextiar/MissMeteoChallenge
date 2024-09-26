@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.app.miss_meteo_challenge.bo.WeatherResponse;
 import fr.app.miss_meteo_challenge.services.WeatherService;
 import fr.app.miss_meteo_challenge.services.impl.weather_api.WeatherApiService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -21,21 +22,22 @@ import java.util.List;
 @Qualifier("parisLocalService")
 public class ParisLocalWeatherService implements WeatherService {
 
-    private final Path PARIS_WEATHER_FILE = Paths.get("src/main/resources/data/paris-weather.json");
+    private final Path PARIS_WEATHER_FILE = Paths.get("src/main/java/fr/app/miss_meteo_challenge/data/paris-weather.json");
+
+    @Autowired
+    private WeatherApiService weatherApiService;
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     /**
-     * Update the weather of Paris for the three next day
-     *
-     * @throws RuntimeException if an error occurs during the writing of the file
+     * Write the weather of Paris for the three next day in a local Json file
      */
     @Scheduled(cron = "0 0 0 * * ?")
     public void updateParisWeather() {
-
-        WeatherApiService weatherApiService = new WeatherApiService();
         List<WeatherResponse> parisWeather = weatherApiService.getParisWeatherForThreeDay();
 
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writeValue(PARIS_WEATHER_FILE.toFile(), parisWeather);
         } catch (IOException e) {
             throw new RuntimeException("Erreur lors de l'écriture du fichier météo de Paris", e);
@@ -44,10 +46,9 @@ public class ParisLocalWeatherService implements WeatherService {
 
     /**
      * Get the weather of Paris for the next day
+     *
      * @param cityname the name of the city (not used)
-     *
      * @return WeatherResponse with the weather of Paris for the next day
-     *
      * @throws RuntimeException if an error occurs during the reading of the file or if there is no weather for the next day
      */
     @Override
