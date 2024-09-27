@@ -23,9 +23,8 @@ public class WeatherController {
     /**
      * Constructor
      *
-     * @param weatherServiceFacade The service to get the weather
+     * @param weatherServiceFacade The service who will try to get the weather from external services
      */
-    @Autowired
     public WeatherController(WeatherServiceFacade weatherServiceFacade) {
         this.weatherService = weatherServiceFacade;
     }

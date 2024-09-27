@@ -24,11 +24,20 @@ public class ParisLocalWeatherService implements WeatherService {
 
     private final Path PARIS_WEATHER_FILE = Paths.get("src/main/java/fr/app/miss_meteo_challenge/data/paris-weather.json");
 
-    @Autowired
-    private WeatherApiService weatherApiService;
+    private final WeatherApiService weatherApiService;
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
+
+    /**
+     * Constructor
+     *
+     * @param weatherApiService The service to get the weather of Paris from WeatherAPI
+     * @param objectMapper The object mapper to read and write the Json file
+     */
+    public ParisLocalWeatherService(WeatherApiService weatherApiService, ObjectMapper objectMapper) {
+        this.weatherApiService = weatherApiService;
+        this.objectMapper = objectMapper;
+    }
 
     /**
      * Write the weather of Paris for the three next day in a local Json file

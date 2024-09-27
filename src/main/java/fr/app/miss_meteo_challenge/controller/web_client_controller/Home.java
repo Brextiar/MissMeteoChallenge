@@ -14,8 +14,15 @@ import org.springframework.web.client.RestTemplate;
  */
 @Controller
 public class Home {
-    @Autowired
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
+
+    /**
+     * Constructor
+     * @param restTemplate the RestTemplate
+     */
+    public Home(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     /**
      * By default, get the weather of Paris
