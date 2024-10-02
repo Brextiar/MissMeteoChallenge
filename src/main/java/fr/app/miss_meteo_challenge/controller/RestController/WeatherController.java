@@ -3,7 +3,6 @@ package fr.app.miss_meteo_challenge.controller.RestController;
 import fr.app.miss_meteo_challenge.bo.WeatherResponse;
 import fr.app.miss_meteo_challenge.services.WeatherService;
 import fr.app.miss_meteo_challenge.services.impl.WeatherServiceFacade;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.app.miss_meteo_challenge.bo.WeatherResponse;
 import fr.app.miss_meteo_challenge.services.WeatherService;
 import fr.app.miss_meteo_challenge.services.impl.weather_api.WeatherApiService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;

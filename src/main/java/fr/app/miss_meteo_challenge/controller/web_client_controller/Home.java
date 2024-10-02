@@ -1,7 +1,6 @@
 package fr.app.miss_meteo_challenge.controller.web_client_controller;
 
 import fr.app.miss_meteo_challenge.bo.WeatherResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,6 +61,7 @@ public class Home {
         } catch (Exception e) {
             model.addAttribute("errorMessage", e.getMessage());
         }
+
         return "index";
     }
 }
